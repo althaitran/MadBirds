@@ -1,0 +1,15 @@
+sling 80 330
+terrain 0 0 500 80
+terrain 0 400 500 300
+terrain 600 100 100 800
+block 200 100
+block 200 150
+block 200 200
+block 200 250
+block 240 100
+target 200 50
+target 240 50
+target 270 150
+target 350 150
+target 590 0
+

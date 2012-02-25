@@ -1,0 +1,94 @@
+Level Creation
+--------------
+
+This game of Mad Birds retrieves its levels from the .lvl files from the
+"level" folder. You, too, can create your own levels by creating .lvl
+files and storing it in this folder.
+
+The main components you can make in a level are the following:
+
+sling    - Slingshot used to shoot the bird. The bird also spawns where the
+           sling is.
+target   - What you need to hit with your bird.
+block    - An obstacle that is capable of falling.
+terrain  - An environment piece that is incapable of falling.
+
+For a .lvl file, all you need to do in order to create a level is to specify
+a few of the above. Of note, you MUST specify sling, target, and terrain
+objects for your level. Not doing so will either make your level unwinnable or
+uncreatable.
+
+
+Naming Convention
+-----------------
+
+In order for your file to be recognized by the game, make sure to name it
+as
+
+    level_x.lvl
+
+where x is the level number. Also, if you want the game to transition into
+your level without having ot use the command line arguments, make sure the
+level number is right after the level number of a valid level. Otherwise,
+your level may not be seen during transition, as the game looks at the very
+next level file to generate levels, and automatically ends if the next
+level doesn't exist or has an invalid file.
+
+
+Syntax:
+-------
+
+To specify an object, you first write it's type name (eg., sling, target, block)
+as the first item on a line. Then, you follow that item with a few numerical
+ parameters (often just two: x and y coordinates). You repeat that for the rest 
+of the objects in the game.
+
+
+The following are the formats you must follow for each object. The first word
+for each object (the object's type) must be written to identify it as that type,
+while the rest can be integers of your choosing.
+
+
+sling x y
+target x y
+block x y
+terrain x y width height
+
+
+(note: the origin of the y-axis is on the top-left of the window, and goes
+       downward. eg., y = 5 means 5 pixels down)
+
+
+Object Sizes
+------------
+
+The following are the dimensions (width and height, respectively) for
+each of the objects in the game. Note that terrain has variable width
+and height, and so is not listed.
+
+sling: 60, 70
+block: 30, 30
+target: 30, 30
+
+
+Example:
+--------
+
+sling 30 380
+block 300 300
+terrain 0 450 600 400
+target 600 500
+target 400 500
+
+
+Tips:
+-----
+
+When trying to make objects spawn on top of each other (say, for example,
+a stack of blocks), try to give a difference of at least 50 pixes vertically.
+The objects will fall on top of each other, and will be less likely to spawn
+inside of each other.
+
+Also, note that you can only have one sling in a game. Thus, trying to
+create more than one will cause the most recently defined one (the one
+furthest down the file) to become the main sling of the game.
